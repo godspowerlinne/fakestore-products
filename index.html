@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake - Store Products</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <section class="section">
+        <header>
+            <!-- Heading  -->
+            <h1>Fake - Store Products</h1>
+
+            <!-- Search Bar  -->
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Search for amazing products..." />
+            </div>
+
+            <!-- Sorting Options  -->
+            <div>
+                <button value="price-asc">Price (Lowest to Highest)</button>
+                <button value="price-desc">Price (Highest to Lowest)</button>
+                <button value="name-asc">Name (A-Z)</button>
+                <button value="name-desc">Name (Z-A)</button>
+            </div>
+
+            <!-- Filter Options  -->
+            <div>
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="">All Categories</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="jewelery">Jewelery</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Error Message  -->
+        <div id="errorMessage" class="error"></div>
+
+        <!-- Loading Spinner  -->
+        <div id="loading"></div>
+
+        <!-- Product Container  -->
+        <div id="container"></div>
+    </section>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
