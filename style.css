@@ -1,4 +1,4 @@
-z* {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,33 +7,42 @@ z* {
 
 body {
   background: #f0f0f0;
-  background-size: cover;
   color: #390ca3;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .section {
   background-color: #ffffff;
   max-width: 1250px;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   padding: 2rem;
-  box-shadow: 0px 0px 20px #390ca36d;
+  box-shadow: 0 0 15px #390ca34d;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 h1 {
   text-align: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   color: #3a0ca3;
   font-size: 2.5rem;
   font-weight: 900;
-  box-shadow: inset 0px 0px 20px #390ca3;
-  text-shadow: 0px 0px 0 #000, 4px 4px 0 #390ca34f;
+  box-shadow: inset 0 0 15px #390ca366;
+  text-shadow: 0 0 0 #000, 3px 3px 0 #390ca34d;
+  padding: 0.5rem;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
+h1:hover {
+  box-shadow: inset 0 0 20px #390ca399;
+  transform: scale(1.01);
+}
 
 /* Search Bar */
 .search-container {
@@ -47,17 +56,18 @@ h1 {
   font-weight: 700;
   width: 100%;
   padding: 12px 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 0.2px solid #8b62ea99;
+  border-radius: 3px;
   font-size: 1.1rem;
-  box-shadow: 0px 0px 1px#390ca3;
-  transition: border-color 0.3s;
+  box-shadow: 0 0 5px #390ca31a;
+  transition: all 0.3s ease;
   outline: none;
 }
 
 #searchBar:focus {
   border-color: #3a0ca3;
-  box-shadow: 0 0 10px #3a0ca333;
+  box-shadow: 0 0 12px #3a0ca340;
+  transform: translateY(-1px);
 }
 
 /* Buttons and Controls */
@@ -66,23 +76,31 @@ select {
   padding: 10px 15px;
   margin: 5px;
   background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 0.2px solid #8b62ea99;
+  border-radius: 3px;
   cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 button:hover,
 select:hover {
-  background-color: #3a0ca333;
+  background-color: #3a0ca31a;
   border-color: #dccdff;
+  transform: translateY(-2px);
+}
+
+button:active,
+select:active {
+  transform: translateY(0);
 }
 
 button.active {
   background-color: #3a0ca3;
   color: white;
   border-color: #3a0ca3;
+  box-shadow: 0 2px 5px #3a0ca34d;
 }
 
 label[for="category"] {
@@ -90,17 +108,26 @@ label[for="category"] {
   margin: 10px;
   color: #390ca3;
   font-size: 1.2rem;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
+label[for="category"]:hover {
+  transform: translateY(-1px);
+  text-shadow: 1px 1px 1px #390ca333;
+}
 
 select {
-  border: 1px solid #ccc;
-  transition: border-color 0.3s;
+  border: 0.2px solid #ccc;
+  transition: all 0.3s ease;
   outline: none;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, #ffffff, #f7f7f7);
 }
 
 select:focus {
-  border-color: #007BFF;
+  border-color: #3a0ca3;
+  box-shadow: 0 0 8px #390ca333;
 }
 
 option {
@@ -110,24 +137,26 @@ option {
 /* Product Container */
 #container {
   display: grid;
-  grid-template-columns: repeat(1fr);
-  gap: 4rem;
-  margin-top: 4rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
 }
 
 /* Product Card */
 .card {
   background-color: white;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: inset 0 4px 6px #3a0ca333;
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px #3a0ca326;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: space-between;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .card:hover {
-  box-shadow: inset 0 4px 10px #3a0ca367;
+  box-shadow: 0 8px 20px #390ca333;
+  transform: translateY(-5px);
 }
 
 .card img {
@@ -137,6 +166,11 @@ option {
   max-width: 440px;
   object-fit: contain;
   padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.03);
 }
 
 .card h2 {
@@ -144,12 +178,19 @@ option {
   padding: 0.5rem 1rem;
   background-color: #3a0ca3;
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-transform: capitalize;
+  border-radius: 0 0 5px 0;
+  transition: all 0.3s ease;
+}
+
+.card h2:hover {
+  padding: 0.6rem 1.2rem;
+  background-color: #4312b8;
 }
 
 .card .cardTexts {
-  padding: 1rem;
+  padding: 1.2rem;
   width: 790px;
   display: flex;
   flex-direction: column;
@@ -157,78 +198,132 @@ option {
 }
 
 .card .cardTexts h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
   color: #3a0ca3;
+  transition: all 0.3s ease;
 }
 
-.card .cardTexts>p:nth-of-type(1) {
-  font-size: 0.9rem;
-  color: #666666;
-  margin-bottom: 1rem;
+.card .cardTexts h3:hover {
+  color: #4e24d5;
+  transform: translateX(3px);
 }
 
-.card .cardTexts>div {
+.card .cardTexts > p:nth-of-type(1) {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.card .cardTexts > div {
   font-weight: bold;
-  flex-grow: 1;
   min-height: 300px;
   background: url('./assets/cardTextBg.jpeg');
   background-size: cover;
   color: #fff;
   position: relative;
-
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card .cardTexts>div .rating {
+.card .cardTexts > div .rating {
   display: block;
   background-color: #3a0ca3;
-  padding-bottom: 1.5rem;
-  padding: 10px;
+  padding: 12px;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+
+.card .cardTexts > div .rating:hover {
+  background-color: #4312b8;
 }
 
 .card .cardTexts span small {
   color: #daccf9;
+  transition: all 0.3s ease;
 }
 
-.card .cardTexts span>p:nth-of-type(1) {
+.card .cardTexts span small:hover {
+  color: #ffffff;
+}
+
+.card .cardTexts span > p:nth-of-type(1) {
   font-size: 1.3rem;
   color: #ffc400;
+  transition: all 0.3s ease;
+}
+.card #price {
+  font-size: 1.6rem;
+  font-weight: 700; 
+  color: #333; 
+  transition: all 0.4s ; 
+  background: linear-gradient(135deg, #f8f8f8, #e8e8e8); 
+  padding: 6px 10px;
+  border-radius: 2px; 
+  margin-top: 15px; 
+  width: min-content;
+  cursor: pointer;
+  box-shadow: 0 4px 8px #0000001a;
+  scale: 1;
 }
 
-.card .cardTexts>div>div {
+
+
+.card #price:hover {
+  background: linear-gradient(135deg, #f0e6ff, #e0d8f0); 
+  box-shadow: 0 6px 12px #00000026;
+  transform: translateY(-3px); 
+  scale: 1.05;
+}
+
+.card .cardTexts > div > div {
   width: 100%;
   position: absolute;
   display: flex;
   gap: 1rem;
   bottom: 0;
   align-items: center;
+  padding: 10px;
+  background: linear-gradient(to top, #000000b3, transparent);
 }
 
-.card .cardTexts>div>div button {
+.card .cardTexts > div > div button {
   margin: 0px;
   padding: 5px;
   background-color: #16404D;
-  border: 0.1px solid #8b62ea;
-  border-radius: 2px;
+  border: 1px solid #8b62ea;
+  border-radius: 3px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
-
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.card .cardTexts>div>div button:hover {
+.card .cardTexts > div > div button:hover {
   background-color: #3a0ca3;
-  transition: all 0.3s;
-  transform: scale(1.1);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.card .cardTexts>div>div button svg {
+.card .cardTexts > div > div button:active {
+  transform: translateY(0);
+}
+
+.card .cardTexts > div > div button svg {
   width: 100%;
   height: 100%;
   fill: #FFFBCA;
   padding: 0px;
   margin: 0px;
+  transition: all 0.2s ease;
+}
+
+.card .cardTexts > div > div button:hover svg {
+  fill: #ffffff;
 }
 
 .card .cardTexts #like .active {
@@ -251,8 +346,12 @@ option {
 .error {
   color: #e63946;
   text-align: center;
-  margin: 1rem 0;
   font-weight: bold;
+  background-color: #e639461a;
+  padding: 1rem;
+  display: none;
+  border-radius: 3px;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 /* Loading Spinner */
@@ -270,7 +369,6 @@ option {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -282,7 +380,6 @@ option {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -290,42 +387,135 @@ option {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .section {
+    max-width: 95%;
+  }
+  
+  .card .cardTexts {
+    width: 60%;
+  }
+  
+  .card img {
+    max-width: 40%;
+  }
+}
 
+@media (max-width: 900px) {
+  .section {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
   .section {
     padding: 1rem;
-    min-width: 100%;
-
+    min-width: 95%;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5rem;
+  }
+  
+  label[for="category"] {
+    font-weight: 600;
+    font-size: 1rem;
   }
 
   #container {
-    gap: 1rem;
+    gap: 2rem;
   }
-
+  
   .card {
     flex-direction: column;
-    gap: 1rem;
   }
+  
   .card img {
     max-width: 100%;
+    height: 300px;
+    margin: 15px auto;
+  }
+  
+  .card .cardTexts {
+    width: 100%;
   }
 
   button,
   select {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     padding: 8px 12px;
   }
 
-  .card .cardTexts {
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  .card .cardTexts > div {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
   }
   
-  #like, #dislike, #cart, #favorite, #download{
+  .search-container {
+    margin: 1rem 0;
+  }
+
+  #searchBar {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+  
+  #container {
+    gap: 1.5rem;
+  }
+  
+  .card .cardTexts > div {
+    min-height: 220px;
+  }
+  
+  .card .cardTexts > div > div button {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  #searchBar {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  
+  button,
+  select {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .card .cardTexts > div {
+    min-height: 200px;
+  }
+  
+  .card .cardTexts h3 {
+    font-size: 1rem;
+  }
+  
+  .card .cardTexts > div > div {
+    gap: 0.5rem;
+  }
+  
+  .card .cardTexts > div > div button {
     width: 30px;
     height: 30px;
   }
-  
 }
