@@ -61,11 +61,13 @@ const displayProducts = (products) => {
   if (products.length === 0) {
     errorMessage.textContent =
       "Oops!Your search didn't return any products. Perhaps try a more general search term?";
+      errorMessage.style.display = "block"; 
     return;
   }
 
   // Clear any previous error messages
   errorMessage.textContent = "";
+  errorMessage.style.display = "none";  
 
   // Create and append product cards
   createProductCards(products, container);
