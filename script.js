@@ -205,6 +205,7 @@ const filterProducts = () => {
     // Check if product title or description contains the search text
     const matchesSearch =
       product.title.toLowerCase().includes(searchText) ||
+      product.category.toLowerCase().includes(searchText) ||
       product.description.toLowerCase().includes(searchText);
 
     // Check if product matches selected category or if no category is selected
